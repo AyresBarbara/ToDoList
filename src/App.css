@@ -3,14 +3,14 @@ body{
   background-color: #f4f4f4;
   padding: 30px;
   color:#333 ;
-  background-image: url('./img/quadriculado.jpg');
+  background-image: url('./img/todolist.webp');
   background-position: center;
   background-size: cover;
 }
 .app{
   max-width:  600px;
   margin: 0 auto 300px;
-  background-color: #efefef;
+  background-color: #96defa;
   padding: 20px 30px;
   border-radius: 10px;
 }
@@ -26,4 +26,36 @@ p{
 
 input{
   box-sizing: border-box;
+}
+button{
+  background-color: #333974;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+button:hover{
+  opacity: 1;
+}
+
+.complete{
+  background-color: #2abe2a;
+}
+.remove{
+  background-color: #d41010;
+}
+
+.todo-form{
+  padding-bottom: 1.5rem;
+}
+input, select{
+padding: 5px;
+margin-bottom: 10px;
+border: 1px solid #DDD;
+border-radius: 3px;
+width: 100%;
 }
