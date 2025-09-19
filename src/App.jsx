@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
+import Search from './components/Search';
 import Todo from './components/Todo'
 import TodoForm from './components/TodoForm';
 
@@ -32,6 +33,8 @@ function App() {
   },
 ]);
 
+const [search, setSearch] = useState("")
+
 const addTodo = (text, category) => {
 
   const newTodos = [...todos,{
@@ -61,9 +64,17 @@ const completeTodo = (id) =>{
   return( <div className='app'> 
   <h1>Lista de Tarefas</h1> 
   
+  <Search search={search} setSearch={setSearch}/>
+
   <div className='todo-list'>
-    {todos.map((todo) => ( //listar meus objetos
-     <Todo key= {todo.id} todo ={todo} removeTodo={removeTodo} completeTodo={completeTodo}/> //Injetado do Todo.jsx
+    {todos
+    .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()) //Busca em tempo real no meu componente
+    )
+    .map((todo) => ( //listar meus objetos
+     <Todo key= {todo.id} 
+     todo ={todo} 
+     removeTodo={removeTodo} 
+     completeTodo={completeTodo}/> //Injetado do Todo.jsx
     ))}
   </div>
     <TodoForm addTodo={addTodo}/>
